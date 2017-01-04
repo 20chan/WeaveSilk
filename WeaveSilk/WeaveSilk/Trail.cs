@@ -10,7 +10,7 @@ namespace WeaveSilk
 {
     public class Trail : DrawableGameComponent
     {
-        public float LifeTime { get; set; } = 60;
+        public float LifeTime { get; set; } = 20;
         private List<Component> _points;
         private SpriteBatch _spriteBatch;
 
@@ -39,6 +39,8 @@ namespace WeaveSilk
             for(int i = 0; i < _points.Count - 1; i++)
             {
                 Line.DrawLine(Game.GraphicsDevice, _spriteBatch, _points[i].Location, _points[i + 1].Location, 3);
+                for (int j = i+ 1; j < _points.Count - 1; j++)
+                    Line.DrawLine(Game.GraphicsDevice, _spriteBatch, _points[i].Location, _points[j].Location, 1);
             }
             base.Draw(gameTime);
         }

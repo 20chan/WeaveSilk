@@ -48,6 +48,7 @@ namespace WeaveSilk
 
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.SetRenderTarget(null);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             trail.Draw(gameTime);
