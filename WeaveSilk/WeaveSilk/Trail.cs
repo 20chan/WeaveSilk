@@ -36,11 +36,12 @@ namespace WeaveSilk
 
         public override void Draw(GameTime gameTime)
         {
-            for(int i = 0; i < _points.Count - 1; i++)
+            for (int i = 0; i < _points.Count - 1; i++)
             {
-                Line.DrawLine(Game.GraphicsDevice, _spriteBatch, _points[i].Location, _points[i + 1].Location, 3);
-                for (int j = i+ 1; j < _points.Count - 1; j++)
-                    Line.DrawLine(Game.GraphicsDevice, _spriteBatch, _points[i].Location, _points[j].Location, 1);
+                Line.DrawLine(Game.GraphicsDevice, _spriteBatch, _points[i].Location, _points[i + 1].Location, Color.Black, 3);
+                if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                    for (int j = i + 1; j < _points.Count - 1; j++)
+                        Line.DrawLine(Game.GraphicsDevice, _spriteBatch, _points[i].Location, _points[j].Location, i % 2 == 0 ? Color.Red : Color.Blue, 1);
             }
             base.Draw(gameTime);
         }

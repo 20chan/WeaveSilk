@@ -18,7 +18,7 @@ namespace WeaveSilk
             {
                 t = new Texture2D(device, 1, 1);
                 t.SetData<Color>(
-                    new Color[] { color });// fill the texture with white
+                    new Color[] { Color.White });// fill the texture with white
             }
             Vector2 edge = v2 - v1;
             // calculate angle to rotate line
